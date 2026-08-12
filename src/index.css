@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Professional UI Polish */
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better Shadows & Borders for Cards */
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Fix overlapping and hidden cards/boxes */
+.overflow-hidden {
+  overflow: clip !important; /* safer than visible but fixes some Safari bugs */
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Button & Input Polish */
+button {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+button:active {
+  transform: scale(0.96) !important;
+}
+input, textarea, select {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  background-color: #f8fafc !important;
+  transition: all 0.2s ease !important;
+}
+input:focus, textarea:focus, select:focus {
+  background-color: #ffffff !important;
+  border-color: #f43f5e !important;
+  box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.1) !important;
+  outline: none !important;
+}
+
+/* Typography Polish */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+p, span, div {
+  line-height: 1.6;
+}
+
+/* Z-index fixes for hidden msgs */
+.fixed {
+  z-index: 50 !important;
+}
+/* .absolute z-index removed to prevent bugs */
+
+/* Glassmorphism for modals */
+.backdrop-blur-sm, .backdrop-blur-md, .bg-black\/40 {
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Card hover effects */
+.hover\:shadow-lg:hover {
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+.rounded-xl.bg-white, .rounded-2xl.bg-white, .rounded-lg.bg-white, .shadow.bg-white, .shadow-md.bg-white {
+  box-shadow: 0 4px 25px -5px rgba(0,0,0,0.05), 0 1px 5px -2px rgba(0,0,0,0.03) !important;
+  border: 1px solid rgba(226, 232, 240, 0.6) !important;
+}
+
+/* Fix notifications/messages visibility */
+.z-50 {
+  z-index: 9999 !important; 
+}
+.fixed.inset-0, .fixed.inset-y-0 {
+  z-index: 9990 !important;
+}
+
+/* Ensure msgs/toast are fully visible */
+.toast, .message-box, [role="alert"] {
+  z-index: 9999 !important;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.15) !important;
+  border-radius: 12px !important;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Clean up input borders so they don't look double-bordered */
+input.bg-white, textarea.bg-white {
+  box-shadow: none !important;
+}
+
+/* Fix any remaining UI visibility bugs */
+.z-40 { z-index: 9940 !important; }
+.z-30 { z-index: 9930 !important; }
+.z-20 { z-index: 9920 !important; }
+.z-10 { z-index: 9910 !important; }
+
+/* Ensure modal contents scroll correctly */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Make sure text doesn't overflow cards horizontally */
+.p-4, .p-5, .p-6, .px-4, .px-5, .px-6 {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* High End UI Enhancements */
+.bg-gradient-to-r, .bg-gradient-to-br, .bg-gradient-to-tr {
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Add subtle micro-interactions to all links and interactive elements */
+a, .cursor-pointer {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+a:active, .cursor-pointer:active {
+  transform: scale(0.98);
+}
+
+/* Soften the typography slightly for a premium feel */
+body {
+  letter-spacing: -0.015em;
+}
+
+/* Ensure empty/hidden messages are elegantly handled */
+/* empty removed */
+
+/* Smooth layout transitions */
+.flex, .grid {
+  transition: gap 0.3s ease;
+}
+
+/* Elevated hover states for standard rounded borders */
+/* hover filter removed */
+
+/* Fix for potential hidden content on smaller screens or cards */
+.break-words {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* Ensure absolute elements like dropdowns and popups have a minimum width and don't get hidden */
+/* abs reverted */
+.absolute.inset-0, .absolute.inset-y-0, .absolute.inset-x-0, .absolute.w-full, .absolute.h-full {
+  min-width: 0; /* revert for structural absolutes */
+}

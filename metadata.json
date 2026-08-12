@@ -1,0 +1,11 @@
+{
+  "name": "EventSync AI",
+  "description": "AI-powered event management and reels style dynamic video creator, featuring automated captioning, push notifications, and customizable event templates.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
