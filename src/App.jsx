@@ -158,7 +158,7 @@ function App() {
         console.warn("Error loading application data:", ue);
       }
     })();
-  }, []);
+  }, [up]);
   React.useEffect(() => {
     const timerId = setInterval(() => {
       if (!t || t.length === 0) return;

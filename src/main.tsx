@@ -16,6 +16,7 @@ const urlBase64ToUint8Array = (base64: string) => {
 };
 
 const initPush = async () => {
+  if (!supabase) return;
   const { data } = await supabase.auth.getSession();
   const token = data?.session?.access_token;
   

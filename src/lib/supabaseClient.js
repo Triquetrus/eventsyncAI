@@ -8,7 +8,7 @@ export const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUr
 function profileFromUser(user) {
   if (!user) return null;
   return {
-    id: user.id,
+    id: user.id || "dummy-user-id",
     name: user.user_metadata?.full_name || user.email.split("@")[0],
     email: user.email,
     role: "User",
@@ -44,17 +44,17 @@ if (supabase) {
   let currentUser = null;
   window.supabaseAuth = {
     login: async (email, password) => {
-      currentUser = { email, user_metadata: { full_name: email.split("@")[0] } };
+      currentUser = { id: "dummy-user-id", email, user_metadata: { full_name: email.split("@")[0] } };
       localStorage.setItem("eventsync_dummy_user", JSON.stringify(currentUser));
       if (window._authStateChanged) window._authStateChanged(profileFromUser(currentUser));
     },
     signup: async (email, password) => {
-      currentUser = { email, user_metadata: { full_name: email.split("@")[0] } };
+      currentUser = { id: "dummy-user-id", email, user_metadata: { full_name: email.split("@")[0] } };
       localStorage.setItem("eventsync_dummy_user", JSON.stringify(currentUser));
       if (window._authStateChanged) window._authStateChanged(profileFromUser(currentUser));
     },
     googleLogin: async () => {
-      currentUser = { email: "bsam64808@gmail.com", user_metadata: { full_name: "Bsam User", avatar_url: null } };
+      currentUser = { id: "dummy-user-id", email: "bsam64808@gmail.com", user_metadata: { full_name: "Bsam User", avatar_url: null } };
       localStorage.setItem("eventsync_dummy_user", JSON.stringify(currentUser));
       if (window._authStateChanged) window._authStateChanged(profileFromUser(currentUser));
     },
